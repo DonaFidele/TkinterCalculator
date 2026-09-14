@@ -77,13 +77,6 @@ Click the buttons to build your expression, then press `=` to evaluate it.
 - `bouttons()` and `num_btn()` are helper methods that generate styled function/number buttons and place them on the grid using `partial()` to bind each button to `clic()` with its own label.
 - `creer_btn()` lays out every button in its correct row/column position.
 
-## ⚠️ Known Limitations
-
-- Uses Python's `eval()` directly on user input — **not safe** for untrusted input; fine for personal/local use, but should not be exposed in any public-facing context.
-- Scientific buttons like `sin`, `cos`, `tan`, `log`, `ln`, `√`, `x!`, `π`, `e`, `Ans`, `EXP`, and `Rad/Deg` currently just insert their **label as text** into the expression rather than performing the actual computation — the `math` module is imported but not yet wired into `clic()`.
-- `x^y` inserts a `^` character, which Python's `eval()` does not interpret as exponentiation (Python uses `**`), so this will currently raise an error rather than compute a power.
-- No error handling around `eval()` — invalid expressions (e.g. trailing operators, mismatched parentheses) will raise unhandled exceptions.
-
 ## 🗺️ Roadmap
 
 - [ ] Wire up scientific functions (`sin`, `cos`, `tan`, `log`, `ln`, `sqrt`, `factorial`) to the `math` module
